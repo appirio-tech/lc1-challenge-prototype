@@ -1,0 +1,25 @@
+{
+	"settings":
+		[
+			{
+				"label": "Lorem ipsum 1",
+				"checked": false
+			},
+			{
+				"label": "Lorem ipsum 2",
+				"checked": true
+			},
+			{
+				"label": "Lorem ipsum 3",
+				"checked": false
+			},
+			{
+				"label": "Lorem ipsum 4",
+				"checked": false
+			},
+			{
+				"label": "Lorem ipsum 5",
+				"checked": false
+			}
+		]
+}
