@@ -4,7 +4,7 @@
 			{
 				"name": "Create New Challenge",
 				"thumb": "i/sub-applications-thumb.png",
-				"href":"#/edit-challenge-view"
+				"href":"#/challenges/1/edit"
 			},
 			{
 				"name": "Challenges",
