@@ -62,10 +62,7 @@
  -->                
                         &nbsp;
                 </th>
-                <th class=" sortable" data-ng-class="{
-                    'sort-asc': tableParams.isSortBy(header.col, 'asc'),
-                    'sort-desc': tableParams.isSortBy(header.col, 'desc')
-                  }" data-ng-repeat="header in columnHeaders"><div data-ng-click="tableParams.sorting(header.col, tableParams.isSortBy(header.col, 'asc') ? 'desc' : 'asc')">{{header.colName}}<i></i></div></th>
+                <th data-ng-repeat="header in columnHeaders"><div>{{header.colName}}</div></th>
                 <th data-ng-if="!phone" class="text-center" colspan="3"><div>Action</div></th>
             </tr>
             <tr data-ng-if="view == 'grid'" class="gridView">
@@ -92,28 +89,19 @@
                         <a href="javascript:" class="add-btn {{row.expand?'expand':''}}" data-ng-click="toggleExpand(row)"></a>
                     </td>
                     <td class="text-left" data-sortable="'col1'">
-                        <a href="#/challenges/1/submissions">{{row.col1}}-{{row.id}}</a>
+                        {{row.col1}}
                     </td>
                     <td class="text-left" data-sortable="'col2'">
                         {{row.col2}}
                     </td>
                     <td class="text-left" data-sortable="'col3'">
-                        {{row.col3}}
+                        <a href="https://www.topcoder.com/member-profile/{{row.col3}}/" target="_blank">{{row.col3}}</a>
                     </td>
-                    <td data-ng-if="!phone" class="text-left" data-sortable="'col4'">
+                    <td class="text-left" data-sortable="'col3'">
                         {{row.col4}}
                     </td>
-<!--                     <td data-ng-if="!phone" class="action-btn">
-                        <a href="javascript:" class="copy"></a>
-                    </td> -->
-                    <td data-ng-if="!phone" class="action-btn" ng-switch on="row.id">
-                        <a href="#/challenges/1/submissions" class="edit" ng-switch-when="1">{{row.id}}</a>
-                        <a href="#/challenges/2/submissions" class="edit" ng-switch-when="2">{{row.id}}</a>
-                        <a href="#/challenges/4/results" class="edit" ng-switch-when="4">{{row.id}}</a>
-                        <a href="#/edit-challenge-view" class="edit" ng-switch-default>{{row.id}}</a>
-                    </td>
                     <td data-ng-if="!phone" class="action-btn">
-                        <a href="javascript:void(0);" data-ng-click="delete(row)" class="delete"></a>
+                        <a href="data/submission.pdf" download class="edit" title="Download Submission"></a>
                     </td>
                 </tr>
                 <tr data-ng-if="row.expand" class="{{checkboxes.items[row.id]?'select':''}}" data-ng-class="$odd?'odd':''">
@@ -170,11 +158,5 @@
             </tbody>
         </table>
         <!--end table-->
-        <div class="custom-pager">
-            <span data-ng-if="!phone" class="label">Showing items <b>1-10</b> of <b>12</b></span>
-<!--             <select class="styled" data-ng-model="pagerSelection" data-ng-options="option for option in pagerOptions" data-ng-change="changeCount(pagerSelection)"></select>
-            <span data-ng-if="!phone" class="label">Per Page</span> -->
-        </div>
-
     </div>
 </div>
