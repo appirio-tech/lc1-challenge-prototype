@@ -1,0 +1,20 @@
+#2 Ie9, schedule-view --> week view, the green bar does not show slider animation when hover on
+
+this cannot be fixed with css and this is not ask in wiki. So i can remove animation in other browser if this not needed.
+
+#5.9 schedule view--week view:
+#5.9.1 http://grab.by/yTRq
+compare with storyboard, the week view should display only one day event not the week event
+
+This cannot be done with this calendar plugin(week view). If we show one day for week, we can't show other days of week.
+
+#5.9.2 http://grab.by/yTRM
+The week date should extend, note the Sunday should align with bottom timeline
+
+this one also couldn't do with this structure
+
+
+##Position of events is incorrect in Schedule Weekly View.
+I mean in calendarEventsList.json.the "Start" is "2014-07-20T00:00:00Z".But the event in screen is in 2014-07-20 08:30:00AM.
+
+this is because time show with adding timezone value to original value.

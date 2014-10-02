@@ -1,0 +1,16 @@
+<div class="modal-header">
+	<a href="javascript:" class="text-hide icon-close" data-ng-click="cancel_settings()">Close</a>
+	<h3 class="modal-title">Setting</h3>
+</div>
+<div class="modal-body">
+	<div class="form-group" data-ng-repeat="setting in settings">
+		<label>{{setting.label}}</label>
+		<div class="switch" data-ng-class="{checked : setting.checked}">
+			<input type="checkbox" data-ng-model="setting.checked" />
+			<span class="toggle"></span>
+		</div>
+	</div>
+</div>
+<div class="modal-footer">
+	<button class="btn btn-primary" data-ng-click="ok()">APPLY</button>
+</div>

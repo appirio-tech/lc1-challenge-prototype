@@ -1,0 +1,486 @@
+{
+    "columnHeadersChallenges": [
+        {
+            "colName": "Name",
+            "col": "challengeName"
+        },
+        {
+            "colName": "Account",
+            "col": "accountName"
+        },
+        {
+            "colName": "Last Updated",
+            "col": "lastUpdatedAt"
+        },
+        {
+            "colName": "Status",
+            "col": "status"
+        }
+    ],    
+    "tableDataChallenges": [
+        {
+            "id": 1,
+            "challengeName": "Asteroid Data Hunter - System Architecture",
+            "accountName": "IQSS-NTL",
+            "lastUpdatedAt": "2014/09/29 9:02 PM",
+            "status": "Review"
+        },
+        {
+            "id": 2,
+            "challengeName": "aLorem ipsum",
+            "accountName": "Acme",
+            "lastUpdatedAt": "2014/09/27 3:34 PM",
+            "status": "Submission"
+        },
+        {
+            "id": 3,
+            "challengeName": "aLorem ipsum",
+            "accountName": "Lorem ipsum",
+            "lastUpdatedAt": "2014/09/24 9:02 PM",
+            "status": "Draft"
+        },
+        {
+            "id": 4,
+            "challengeName": "aLorem ipsum3",
+            "accountName": "Lorem ipsum",
+            "lastUpdatedAt": "2014/09/20 9:02 PM",
+            "status": "Complete"
+        },
+        {
+            "id": 5,
+            "challengeName": "Lorem ipsum",
+            "accountName": "Lorem ipsum",
+            "lastUpdatedAt": "2014/09/12 9:02 PM",
+            "status": "Draft"
+        },
+        {
+            "id": 6,
+            "challengeName": "Lorem ipsum",
+            "accountName": "Lorem ipsum",
+            "lastUpdatedAt": "2014/09/02 9:02 PM",
+            "status": "Draft"
+        },
+        {
+            "id": 7,
+            "challengeName": "Lorem ipsum",
+            "accountName": "Lorem ipsum",
+            "lastUpdatedAt": "2014/08/29 9:02 PM",
+            "status": "Draft"
+        },
+        {
+            "id": 8,
+            "challengeName": "Lorem ipsum",
+            "accountName": "Lorem ipsum",
+            "lastUpdatedAt": "2014/08/20 9:02 PM",
+            "status": "Draft"
+        },
+        {
+            "id": 9,
+            "challengeName": "Lorem ipsum",
+            "accountName": "Lorem ipsum",
+            "lastUpdatedAt": "2014/08/12 9:02 PM",
+            "status": "Draft"
+        },
+        {
+            "id": 10,
+            "challengeName": "Lorem ipsum",
+            "accountName": "Lorem ipsum",
+            "lastUpdatedAt": "2014/07/29 9:02 PM",
+            "status": "Draft"
+        },
+        {
+            "id": 11,
+            "challengeName": "Lorem ipsum",
+            "accountName": "Lorem ipsum",
+            "lastUpdatedAt": "2014/06/29 9:02 PM",
+            "status": "Draft"
+        },
+        {
+            "id": 12,
+            "challengeName": "Lorem ipsum",
+            "accountName": "Lorem ipsum",
+            "lastUpdatedAt": "2014/05/29 9:02 PM",
+            "status": "Draft"
+        }
+    ],
+    "columnHeadersSubmission": [
+        {
+            "colName": "Id",
+            "col": "col1"
+        },
+        {
+            "colName": "Date Submitted",
+            "col": "col2"
+        },
+        {
+            "colName": "Score",
+            "col": "col3"
+        },
+        {
+            "colName": "Status",
+            "col": "col4"
+        }
+
+    ],
+    "tableDataSubmission": [
+        {
+            "id": 1,
+            "col1": "1",
+            "col2": "2014/09/29 3:34 AM",
+            "col3": 90.2,
+            "col4": "Saved"
+        },
+        {
+            "id": 2,
+            "col1": "2",
+            "col2": "2014/09/29 3:34 PM",
+            "col3": 30.2,
+            "col4": "Complete"
+        },
+        {
+            "id": 3,
+            "col1": "3",
+            "col2": "2014/09/30 3:34 AM",
+            "col3": 0.0,
+            "col4": "Saved"
+        },
+        {
+            "id": 4,
+            "col1": "4",
+            "col2": "2014/10/01 5:01 PM",
+            "col3": 89.2,
+            "col4": "Complete"
+        },
+        {
+            "id": 5,
+            "col1": "5",
+            "col2": "2014/10/02 7:12 PM",
+            "col3": 0.0,
+            "col4": "New"
+        }
+    ],
+     "columnHeadersScorecard": [
+        {
+            "colName": "Id",
+            "col": "col1"
+        },
+        {
+            "colName": "Requirement",
+            "col": "col2"
+        },
+        {
+            "colName": "Score",
+            "col": "col3"
+        },
+        {
+            "colName": "Comment",
+            "col": "col4"
+        }
+
+    ],
+    "tableDataScorecard": [
+        {
+            "id": 1,
+            "col1": "1",
+            "col2": "Requirement 1 blah blah blah",
+            "col3": "0-4",
+            "col4": ""
+        },
+        {
+            "id": 2,
+            "col1": "2",
+            "col2": "Requirement 2 blah blah blah",
+            "col3": "30.2",
+            "col4": ""
+        },
+        {
+            "id": 3,
+            "col1": "3",
+            "col2": "Requirement 3 blah blah blah",
+            "col3": "0",
+            "col4": ""
+        },
+        {
+            "id": 4,
+            "col1": "4",
+            "col2": "Requirement 4 blah blah blah",
+            "col3": "89.2",
+            "col4": ""
+        },
+        {
+            "id": 5,
+            "col1": "5",
+            "col2": "Requirement 5 blah blah blah",
+            "col3": "0",
+            "col4": ""
+        }
+    ],
+    "tableDataMobile": [
+        {
+            "id": 1,
+            "col1": "Lorem",
+            "col2": "Lorem1",
+            "col3": "Lorem",
+            "col4": "Lorem",
+            "expand":false
+        },
+        {
+            "id": 2,
+            "col1": "Lorem",
+            "col2": "Lorem",
+            "col3": "Lorem",
+            "col4": "Lorem",
+            "expand":false
+        },
+        {
+            "id": 3,
+            "col1": "Lorem",
+            "col2": "Lorem",
+            "col3": "Lorem",
+            "col4": "Lorem",
+            "expand":false
+        },
+        {
+            "id": 4,
+            "col1": "Lorem",
+            "col2": "Lorem",
+            "col3": "Lorem",
+            "col4": "Lorem",
+            "expand":false
+        },
+        {
+            "id": 5,
+            "col1": "Lorem",
+            "col2": "Lorem",
+            "col3": "Lorem",
+            "col4": "Lorem",
+            "expand":false
+        },
+        {
+            "id": 6,
+            "col1": "Lorem",
+            "col2": "Lorem",
+            "col3": "Lorem",
+            "col4": "Lorem",
+            "expand":false
+        },
+        {
+            "id": 7,
+            "col1": "Lorem",
+            "col2": "Lorem",
+            "col3": "Lorem",
+            "col4": "Lorem",
+            "expand":false
+        },
+        {
+            "id": 8,
+            "col1": "Lorem",
+            "col2": "Lorem",
+            "col3": "Lorem",
+            "col4": "Lorem",
+            "expand":false
+        },
+        {
+            "id": 9,
+            "col1": "Lorem",
+            "col2": "Lorem",
+            "col3": "Lorem",
+            "col4": "Lorem",
+            "expand":false
+        },
+        {
+            "id": 10,
+            "col1": "Lorem",
+            "col2": "Lorem",
+            "col3": "Lorem",
+            "col4": "Lorem",
+            "expand":false
+        },
+        {
+            "id": 11,
+            "col1": "Lorem",
+            "col2": "Lorem",
+            "col3": "Lorem",
+            "col4": "Lorem",
+            "expand":false
+        },
+        {
+            "id": 12,
+            "col1": "Lorem",
+            "col2": "Lorem",
+            "col3": "Lorem",
+            "col4": "Lorem",
+            "expand":false
+        },
+        {
+            "id": 13,
+            "col1": "Lorem",
+            "col2": "Lorem",
+            "col3": "Lorem",
+            "col4": "Lorem",
+            "expand":false
+        },
+        {
+            "id": 14,
+            "col1": "Lorem",
+            "col2": "Lorem",
+            "col3": "Lorem",
+            "col4": "Lorem",
+            "expand":false
+        },
+        {
+            "id": 15,
+            "col1": "Lorem",
+            "col2": "Lorem",
+            "col3": "Lorem",
+            "col4": "Lorem",
+            "expand":false
+        },
+        {
+            "id": 16,
+            "col1": "Lorem",
+            "col2": "Lorem",
+            "col3": "Lorem",
+            "col4": "Lorem",
+            "expand":false
+        },
+        {
+            "id": 17,
+            "col1": "Lorem",
+            "col2": "Lorem",
+            "col3": "Lorem",
+            "col4": "Lorem",
+            "expand":false
+        },
+        {
+            "id": 18,
+            "col1": "Lorem",
+            "col2": "Lorem",
+            "col3": "Lorem",
+            "col4": "Lorem",
+            "expand":false
+        },
+        {
+            "id": 19,
+            "col1": "Lorem",
+            "col2": "Lorem",
+            "col3": "Lorem",
+            "col4": "Lorem",
+            "expand":false
+        },
+        {
+            "id": 20,
+            "col1": "Lorem",
+            "col2": "Lorem",
+            "col3": "Lorem",
+            "col4": "Lorem",
+            "expand":false
+        },
+        {
+            "id": 21,
+            "col1": "Lorem",
+            "col2": "Lorem",
+            "col3": "Lorem",
+            "col4": "Lorem",
+            "expand":false
+        },
+        {
+            "id": 22,
+            "col1": "Lorem",
+            "col2": "Lorem",
+            "col3": "Lorem",
+            "col4": "Lorem",
+            "expand":false
+        },
+        {
+            "id": 23,
+            "col1": "Lorem",
+            "col2": "Lorem",
+            "col3": "Lorem",
+            "col4": "Lorem",
+            "expand":false
+        },
+        {
+            "id": 24,
+            "col1": "Lorem",
+            "col2": "Lorem",
+            "col3": "Lorem",
+            "col4": "Lorem",
+            "expand":false
+        },
+        {
+            "id": 25,
+            "col1": "Lorem",
+            "col2": "Lorem",
+            "col3": "Lorem",
+            "col4": "Lorem",
+            "expand":false
+        },
+        {
+            "id": 26,
+            "col1": "Lorem",
+            "col2": "Lorem",
+            "col3": "Lorem",
+            "col4": "Lorem",
+            "expand":false
+        },
+        {
+            "id": 27,
+            "col1": "Lorem",
+            "col2": "Lorem",
+            "col3": "Lorem",
+            "col4": "Lorem",
+            "expand":false
+        },
+        {
+            "id": 28,
+            "col1": "Lorem",
+            "col2": "Lorem",
+            "col3": "Lorem",
+            "col4": "Lorem",
+            "expand":false
+        },
+        {
+            "id": 29,
+            "col1": "Lorem",
+            "col2": "Lorem",
+            "col3": "Lorem",
+            "col4": "Lorem",
+            "expand":false
+        },
+        {
+            "id": 30,
+            "col1": "Lorem",
+            "col2": "Lorem",
+            "col3": "Lorem",
+            "col4": "Lorem",
+            "expand":false
+        },
+        {
+            "id": 31,
+            "col1": "Lorem",
+            "col2": "Lorem",
+            "col3": "Lorem",
+            "col4": "Lorem",
+            "expand":false
+        }
+    ],
+    "columnHeadersMobile": [
+        {
+            "colName": "column",
+            "col": "col1"
+        },
+        {
+            "colName": "column",
+            "col": "col2"
+        },
+        {
+            "colName": "column",
+            "col": "col3"
+        },
+        {
+            "colName": "column",
+            "col": "col4"
+        }
+    ]
+}

@@ -1,0 +1,242 @@
+<div>
+    <!--sub headers-->
+    <header class="sub-header">
+        <div class="ui-container">
+            <!--actions-->
+            <div class="actions desktop">
+                <div class="action-btns" data-ng-if="checked>0">
+                    <a href="javascript:" class="btn btn-copy"><i></i></a>
+                    <a href="javascript:" class="btn btn-delete" data-ng-click="deleteSelected()"><i></i></a>
+                    <a href="javascript:" class="btn btn-action {{action_popover_open?'active':''}}" data-ng-click="action_open()" data-off-click="action_close()"><i></i></a>
+                </div>
+                <a href="javascript:" class="btn add-new"><i></i>New Challenge</a>
+                <a href="javascript:" class="btn filter {{filter_popover_open?'active':''}}" data-ng-click="filter_open()"><i></i></a>
+
+                <div class="btn-group" style:"display:none">
+                    <label class="btn grid" data-ng-model="view" data-btn-radio="'grid'"><i></i></label>
+                    <label class="btn list" data-ng-model="view" data-btn-radio="'list'"><i></i></label>
+                </div>
+
+
+                <div class="ui-popover popover-advance-search popover-filter"
+                     data-ng-class="{'popover-open':filter_popover_open}"
+                     data-force-click>
+                    <div class="popover-heading">
+                        <a href="javascript:;" class="text-hide icon-close"
+                           data-ng-click="filter_close()">
+                            Close
+                        </a>
+                        <h3 class="modal-title">Advance Search</h3>
+                    </div>
+                    <div class="popover-body">
+                        <div class="form-group">
+                            <label>Column Name</label>
+                            <input data-ng-model="name1" type="text" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <label>Column Name</label>
+                            <input data-ng-model="name2" type="text" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <label>Column Name</label>
+                            <select data-ng-model="name3">
+                                <option value="1">Please Select</option>
+                                <option value="2">Lorem ipsum</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Column Name</label>
+                            <select data-ng-model="name4">
+                                <option value="1">Please Select</option>
+                                <option value="2">Lorem ipsum</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Column Name</label>
+                            <div class="switch" data-ng-class="{checked : filterChecked}">
+                                <input type="checkbox" data-ng-model="filterChecked"  />
+                                <span class="toggle"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="popover-footer">
+                        <button class="btn btn-primary" data-ng-click="filter_close()">APPLY</button>
+                        <button class="btn btn-gray" data-ng-click="filter_reset()">RESET</button>
+                    </div>
+                </div>
+                <!-- End .filter popup -->
+
+                <div class="ui-popover popover-action popover-subApplication"
+                     data-ng-class="{'popover-open':action_popover_open}"
+                     data-force-click>
+                    <ul>
+                        <li data-ng-repeat="action in actionList"
+                            data-ng-class="{even: $index%2 === 1, group: ($index+1)%3 === 0}">
+                            <a href="javascript:">
+                                <img src="i/sub-applications-thumb.png" data-ng-src="{{action.thumb}}" alt="Sun Application" class="thumbnail" />
+                                {{action.name}}
+                            </a>
+                    </ul>
+                </div>
+                <!-- End .filteraction list popup -->
+            </div>
+            <!--actions-->
+            <div class="actions mobile">
+
+                <a href="javascript:" class="btn filter {{filter_popover_open?'active':''}}" data-ng-click="filter_open()"><i></i></a>
+
+                <div class="btn-group">
+                    <label class="btn {{view}}" data-ng-click="toggleView()"><i></i></label>
+                </div>
+            </div>
+            <!--title-->
+            <h3>
+                <i></i>Sub Application
+            </h3>
+        </div>
+    </header>
+    <div class="ui-container card-view {{phone?'no-margin':''}}">
+        <div  data-ng-if="phone" class="mobile tableName no-border">
+            <a href="javascript:" class="add-btn"></a>
+            <label class="select-all">
+                <input type="checkbox" data-ng-model="checkboxes.checked" class="select_all" name="filter-checkbox" value="" />
+                <span class="custom-checkbox"></span>
+            </label>
+            <a href="javascript:" class="delete-btn" data-ng-if="view == 'list'" data-ng-click="deleteSelected()"></a>
+            <h3>TableName Lorem</h3>
+        </div>
+        <table data-ng-table="tableParams" class="table subAppCard">
+            <thead>
+            <tr>
+                <th colspan="4" class="{{view==='grid'?'no-bottom-border':''}}">
+                    <label data-ng-if="!phone" class="select-all">
+                        <input type="checkbox" data-ng-model="checkboxes.checked" class="select_all" name="filter-checkbox" value="" />
+                        <span class="custom-checkbox"></span>
+                        <span class="text">Select All</span>
+                    </label>
+                </th>
+            </tr>
+            </thead>
+            <tbody data-ng-if="view == 'list'" data-ng-repeat="row in $data">
+                <tr data-ng-if="!row.showAction" data-ng-class="$odd?'odd':''" class="{{checkboxes.items[row.id]?'select':''}}">
+                    <td data-ng-if="!phone" class="checkbox-cell border-right border-left">
+                        <label class="custom-checkbox">
+                            <input type="checkbox" data-ng-model="checkboxes.items[row.id]" />
+                            <span class="custom-checkbox"></span>
+                        </label>
+                    </td>
+                    <td class="thumb-cnt" data-sortable="'col1'">
+                        <img data-ng-if="!phone" class="thumb" src="i/desktop/card-view-grid.jpg" alt="x" data-ng-src="i/desktop/{{row.thumb}}-{{view}}.jpg"/>
+                        <img data-ng-if="phone" class="thumb" src="i/mobile/card-view-list.jpg" alt="x" data-ng-src="i/mobile/{{row.thumb}}-{{view}}.jpg"/>
+                    </td>
+                    <td class="name text-left" data-sortable="'col2'">
+                        <div data-ng-if="!phone" class="share">
+                            <a href="javascript:" class="fb"></a>
+                            <a href="javascript:" class="twitter"></a>
+                            <a href="javascript:" class="gPlus"></a>
+                        </div>
+                        <div data-ng-if="!phone" class="rate-name">
+                            <span class="name">{{row.name}}</span>
+                            <rating class="rating" data-ng-model="row.score" max="5" readonly="isReadonly" on-hover="hoveringOver(value)" on-leave="overStar = null"></rating>
+                        </div>
+                        <div data-ng-if="phone" class="desc">
+                            <span class="name">{{row.name}}</span>
+                            <span class="details">{{row.details}}</span>
+                        </div>
+                    </td>
+                    <td data-ng-if="phone" class="checkbox-cell">
+                        <label class="custom-checkbox">
+                            <input type="checkbox" data-ng-model="checkboxes.items[row.id]" />
+                            <span class="custom-checkbox"></span>
+                        </label>
+                    </td>
+                    <td class="{{!phone?'action-btn':''}} action-cell border-right">
+                        <a data-ng-if="!phone" href="javascript:" data-ng-click="" class="search"></a>
+                        <a data-ng-if="!phone" href="javascript:" data-ng-click="" class="edit"></a>
+                        <a data-ng-if="!phone" href="javascript:" data-ng-click="delete(row)" class="delete"></a>
+                        <a data-ng-if="phone" href="javascript:" data-ng-click="showAction(row)" class="action"></a>
+                    </td>
+                </tr>
+                <tr data-ng-if="row.showAction" class="select">
+                    <td class="action-cell" colspan="4">
+                        <div class="actionHide">
+                            <a data-ng-if="phone" href="javascript:" data-ng-click="showAction(row)" class="action"></a>
+                        </div>
+                        <div class="actionBtns">
+                            <div>
+                                <a data-ng-if="phone" href="javascript:" class="copy"></a>
+                                <span>Lorem</span>
+                            </div>
+                            <div>
+                                <a data-ng-if="phone" href="javascript:" class="copy"></a>
+                                <span>Lorem</span>
+                            </div>
+                            <div>
+                                <a data-ng-if="phone" href="javascript:" class="edit"></a>
+                                <span>Edit</span>
+                            </div>
+                            <div>
+                                <a data-ng-if="phone" href="javascript:" data-ng-click="delete(row)" class="delete"></a>
+                                <span>Delete</span>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+            <tbody data-ng-if="view == 'grid'">
+                <tr class="gridView {{phone?'mobile':''}}">
+                    <td colspan="4" class="no-bottom-border">
+                        <div class="grid_cnt {{!portrait?'landscape':''}}">
+                            <div class="grid card-view col-lg-3 col-md-3 col-sm-4 col-xs-4 {{checkboxes.items[item.id]?'select':''}}" data-ng-repeat="item in $data">
+                            <!--grid body-->
+                            <div class="body">
+                                <img data-ng-if="!phone" src="i/desktop/card-view-grid.jpg" alt="x" data-ng-src="i/desktop/{{item.thumb}}-{{view}}.jpg"/>
+                                <img data-ng-if="phone" src="i/mobile/card-view-grid.jpg" alt="x" data-ng-src="i/mobile/{{item.thumb}}-{{view}}.jpg"/>
+                                <!--action and ratings-->
+                                <div class="action-rating" data-ng-if="!phone">
+                                    <!--name-->
+                                    <span class="name">{{item.name}}</span>
+                                    <!--ratings-->
+                                    <rating class="rating" data-ng-model="item.score" max="5" readonly="isReadonly" on-hover="hoveringOver(value)" on-leave="overStar = null"></rating>
+                                    <!--share-->
+                                    <div class="share">
+                                        <a href="javascript:" class="fb"></a>
+                                        <a href="javascript:" class="twitter"></a>
+                                        <a href="javascript:" class="gPlus"></a>
+                                    </div>
+                                    <!--actions-->
+                                    <div class="actions">
+                                        <a href="javascript:" data-ng-click="" class="search"></a>
+                                        <a href="javascript:" data-ng-click="" class="edit"></a>
+                                        <a href="javascript:" data-ng-click="delete(item)" class="delete"></a>
+                                    </div>
+                                </div>
+                                <!--actions-->
+                                <div data-ng-if="phone" class="actions">
+                                    <a href="javascript:" data-ng-click="" class="edit"></a>
+                                    <a href="javascript:" data-ng-click="delete(item)" class="delete"></a>
+                                </div>
+                                <!--check box-->
+                                <div class="input-cnt border-bottom">
+                                    <label class="custom-checkbox">
+                                        <input type="checkbox" data-ng-model="checkboxes.items[item.id]" />
+                                        <span class="custom-checkbox"></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                            <div class="clearfix"></div>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <!--end table-->
+        <div class="custom-pager">
+            <span data-ng-if="!phone" class="label">Show :</span>
+            <select class="styled" data-ng-model="pagerSelection" data-ng-options="option for option in pagerOptions" data-ng-change="changeCount(pagerSelection)"></select>
+            <span data-ng-if="!phone" class="label">Per Page</span>
+        </div>
+
+    </div>
+</div>

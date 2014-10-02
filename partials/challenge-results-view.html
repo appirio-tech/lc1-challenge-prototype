@@ -1,0 +1,180 @@
+<div>
+    <!--sub headers-->
+    <header class="sub-header">
+        <div class="ui-container">
+            <!--actions-->
+            <div class="actions desktop">
+                <div class="action-btns" data-ng-if="checked>0">
+                    <a href="javascript:" class="btn btn-copy"><i></i></a>
+                    <a href="javascript:" class="btn btn-delete" data-ng-click="deleteSelected()"><i></i></a>
+                    <a href="javascript:" class="btn btn-action {{action_popover_open?'active':''}}" data-ng-click="action_open()" ><i></i></a>
+                </div>
+
+
+                <div class="ui-popover popover-action popover-subApplication"
+                     data-ng-class="{'popover-open':(action_popover_open && checked>0) }"
+                     data-force-click>
+                    <ul>
+                        <li data-ng-repeat="action in actionList"
+                            data-ng-class="{even: $index%2 === 1, group: ($index+1)%3 === 0}">
+                            <a href="javascript:">
+                                <img src="i/sub-applications-thumb.png" data-ng-src="{{action.thumb}}" alt="Sun Application" class="thumbnail" />
+                                {{action.name}}
+                            </a>
+                    </ul>
+                </div>
+                <!-- End .filteraction list popup -->
+            </div>
+            <!--actions-->
+            <div class="actions mobile">
+
+                <a href="javascript:" class="btn filter {{filter_popover_open?'active':''}}" data-ng-click="filter_open()"><i></i></a>
+
+                <div class="btn-group">
+                    <label class="btn {{view}}" data-ng-click="toggleView()"><i></i></label>
+                </div>
+            </div>
+            <!--title-->
+            <h3>
+                <i></i>Challenges Results
+            </h3>
+        </div>
+    </header>
+    <div class="ui-container">
+        <div  data-ng-if="phone" class="mobile tableName {{view == 'grid'?'no-border':''}}">
+            <a href="javascript:" class="add-btn"></a>
+            <label data-ng-if="view == 'grid'" class="select-all">
+                <input type="checkbox" data-ng-model="checkboxes.checked" class="select_all" name="filter-checkbox" value="" />
+                <span class="custom-checkbox"></span>
+            </label>
+            <a href="javascript:" class="delete-btn" data-ng-click="deleteSelected()"></a>
+            <h3>TableName Lorem</h3>
+        </div>
+
+        <table data-ng-table="tableParams" class="table subAppTable {{browser==='safari'?'safari':''}}">
+            <thead>
+            <tr data-ng-if="view == 'list'">
+                <th class="checkAll">
+<!--                     <label>
+                        <input type="checkbox" data-ng-model="checkboxes.checked" class="select_all" name="filter-checkbox" value="" />
+                        <span class="custom-checkbox"></span>
+                    </label>
+ -->                
+                        &nbsp;
+                </th>
+                <th class=" sortable" data-ng-class="{
+                    'sort-asc': tableParams.isSortBy(header.col, 'asc'),
+                    'sort-desc': tableParams.isSortBy(header.col, 'desc')
+                  }" data-ng-repeat="header in columnHeaders"><div data-ng-click="tableParams.sorting(header.col, tableParams.isSortBy(header.col, 'asc') ? 'desc' : 'asc')">{{header.colName}}<i></i></div></th>
+                <th data-ng-if="!phone" class="text-center" colspan="3"><div>Action</div></th>
+            </tr>
+            <tr data-ng-if="view == 'grid'" class="gridView">
+                <th class="">
+<!--                     <label data-ng-if="!phone" class="select-all">
+                        <input type="checkbox" data-ng-model="checkboxes.checked" class="select_all" name="filter-checkbox" value="" />
+                        <span class="custom-checkbox"></span>
+                        <span class="text">Select All</span>
+                    </label> -->
+                    &nbsp;
+                </th>
+            </tr>
+            </thead>
+            <tbody  data-ng-if="view == 'list'" data-ng-repeat="row in $data">
+                <tr class="{{checkboxes.items[row.id]?'select':''}}" data-ng-class="$odd?'odd':''">
+                    <td>
+<!--                         <label class="custom-checkbox">
+                            <input type="checkbox" data-ng-model="checkboxes.items[row.id]" />
+                            <span class="custom-checkbox"></span>
+                        </label> -->
+                        &nbsp;
+                    </td>
+                    <td data-ng-if="phone" class="text-left" data-sortable="'col1'">
+                        <a href="javascript:" class="add-btn {{row.expand?'expand':''}}" data-ng-click="toggleExpand(row)"></a>
+                    </td>
+                    <td class="text-left" data-sortable="'col1'">
+                        <a href="#/challenges/1/submissions">{{row.col1}}-{{row.id}}</a>
+                    </td>
+                    <td class="text-left" data-sortable="'col2'">
+                        {{row.col2}}
+                    </td>
+                    <td class="text-left" data-sortable="'col3'">
+                        {{row.col3}}
+                    </td>
+                    <td data-ng-if="!phone" class="text-left" data-sortable="'col4'">
+                        {{row.col4}}
+                    </td>
+<!--                     <td data-ng-if="!phone" class="action-btn">
+                        <a href="javascript:" class="copy"></a>
+                    </td> -->
+                    <td data-ng-if="!phone" class="action-btn" ng-switch on="row.id">
+                        <a href="#/challenges/1/submissions" class="edit" ng-switch-when="1">{{row.id}}</a>
+                        <a href="#/challenges/2/submissions" class="edit" ng-switch-when="2">{{row.id}}</a>
+                        <a href="#/challenges/4/results" class="edit" ng-switch-when="4">{{row.id}}</a>
+                        <a href="#/edit-challenge-view" class="edit" ng-switch-default>{{row.id}}</a>
+                    </td>
+                    <td data-ng-if="!phone" class="action-btn">
+                        <a href="javascript:void(0);" data-ng-click="delete(row)" class="delete"></a>
+                    </td>
+                </tr>
+                <tr data-ng-if="row.expand" class="{{checkboxes.items[row.id]?'select':''}}" data-ng-class="$odd?'odd':''">
+                    <td colspan="5" class="no-padding">
+                        <div class="expandedContent">
+                            <div class="columnRow"><strong>ColumnName : </strong>{{row.col1}}</div>
+                            <div class="columnRow"><strong>ColumnName : </strong>{{row.col2}}</div>
+                            <div class="columnRow"><strong>ColumnName : </strong>{{row.col3}}</div>
+                            <div class="columnRow"><strong>ColumnName : </strong>{{row.col4}}</div>
+                            <div class="action">
+                                <div class="left">
+                                    <a href="javascript:" class="delete-btn" data-ng-click="delete(row)"></a>
+                                </div>
+                                <div class="right">
+                                    <a href="javascript:" class="edit-btn"></a>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+            <tbody data-ng-if="view == 'grid'" class="{{portrait?'portrait':''}} {{phone?'phone':''}}">
+                <tr class="gridView">
+                    <td class="no-bottom-border">
+                        <div data-ng-if="$data.length > 0" class="grid_cnt">
+                            <div class="grid col-lg-3 col-md-3 col-sm-4 {{checkboxes.items[item.id]?'select':''}}" data-ng-repeat="item in $data">
+                                <!--grid header-->
+                                <div class="header">
+                                    <div class="input-cnt">
+<!--                                         <label class="custom-checkbox">
+                                            <input type="checkbox" data-ng-model="checkboxes.items[item.id]" />
+                                            <span class="custom-checkbox"></span>
+                                        </label>
+ -->                                    &nbsp;    
+                                    </div>
+                                    <div class="actions">
+                                        <!-- <a data-ng-if="!phone" href="javascript:" class="copy"></a> -->
+                                        <a href="javascript:" class="edit"></a>
+                                        <a href="javascript:" class="delete" data-ng-click="delete(item)"></a>
+                                    </div>
+                                </div>
+                                <!--grid body-->
+                                <div class="body">
+                                    <div class="column" data-ng-repeat="header in columnHeaders">
+                                        <strong>column : </strong> {{item[header.col]}}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <!--end table-->
+        <div class="custom-pager">
+            <span data-ng-if="!phone" class="label">Showing items <b>1-10</b> of <b>12</b></span>
+<!--             <select class="styled" data-ng-model="pagerSelection" data-ng-options="option for option in pagerOptions" data-ng-change="changeCount(pagerSelection)"></select>
+            <span data-ng-if="!phone" class="label">Per Page</span> -->
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,485 @@
+<!doctype html>
+<html data-ng-app="appirioApp">
+<head>
+<meta name="format-detection" content="telephone=no" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+<!-- CSS Style -->
+<link href="css/bootstrap.css" rel="stylesheet" type="text/css">
+<link href="css/fullcalendar.css" rel="stylesheet" type="text/css">
+<link href="css/screen.css" rel="stylesheet" type="text/css">
+
+<title>Topcoder New Challenge Engine</title>
+
+</head>
+
+<body data-ng-controller="mainCtrl" data-ng-class="{'no-direct-scroll':directPanel,'no-application-scroll':applicationsPanel}">
+
+	<div class="ui-wrapper" 
+		data-ng-class="{'direct-open':directPanel,'applications-open':applicationsPanel}">
+	
+		<div class="panel panel-direct ui-animate" force-click>
+			
+			<div class="panel-heading">
+				<h3>New Challenge Platform</h3>
+			</div>
+			<!-- Ena Panel Header -->
+			
+			<div class="ui-row"
+				data-ng-style="style()"
+				data-resize>
+				<ul>
+					<li 
+						data-ng-repeat="subApplication in subApplications"
+						data-ng-class="{even: $index%2 === 1}">
+						<a href="javascript:;" data-ng-href="{{subApplication.href}}"
+							data-ng-class="{disabled:subApplication.disabled}">
+							<img src="i/sub-applications-thumb.png" data-ng-src="{{subApplication.thumb}}" alt="Sun Application" class="thumbnail" />
+							{{subApplication.name}}
+						</a>
+					</li>
+				</ul>
+			</div>
+		
+		</div>
+		<!-- End Sub Application Panel -->
+		
+		<div class="panel panel-applications ui-animate" force-click>
+			<div class="panel-inner">
+			
+				<!-- This Header For My Application -->
+				<div class="panel-heading" data-ng-show="!allAppications">
+					<h3>My Applications</h3>
+					<a href="javascript:;" class="text-hide icon-add" 
+						data-ng-click="showAllApplications()">
+						Add Applications
+						</a>
+				</div>
+				<!-- End Panel Heaer -->
+				
+				<!-- This Header For All Application -->
+				<div class="panel-heading" data-ng-show="allAppications">
+					<h3>Select Applications</h3>
+					<span class="total">{{count | numberFixedLen:filterred.length.toString().length}} of {{filterred.length}}</span>
+				</div>
+				<!-- End Panel Heaer -->
+				
+				<div class="ui-row"
+					data-ng-style="allAppications ? style(46) : style()"
+					data-resize>
+					<ul>
+						<li
+							data-ng-repeat="application in filterred = (applications | filter:filterScope)"
+							data-ng-class="{even: $index%2 === 1}">
+							<label data-ng-show="allAppications">
+								<input type="checkbox" data-ng-model="application.scope"  />
+								<span class="custom-checkbox"></span>
+							</label>
+							<a href="javascript:;" data-ng-click="allAppications?(application.scope = !application.scope):''">
+								<img src="i/application-thumb.png" data-ng-src="{{application.thumb}}" alt="Application" />
+								{{application.name}}
+							</a>
+						</li>
+					</ul>
+					<p class="no-application" data-ng-show="!filterred.length">There are not any applications</p>
+				</div>
+				<!-- End row -->
+				
+				<div class="panel-footer" data-ng-show="allAppications">
+					<a href="javascript:;" class="btn btn-primary" data-ng-click="selectApplication()">SELECT</a>
+					<a href="javascript:;" class="btn btn-default" data-ng-click="cancelApplication()">CANCEL</a>
+				</div>
+				
+			</div>
+		</div>
+		<!-- End My Application Panel -->
+
+		<div class="ui-page ui-animate">
+		
+			<header>
+			
+				<div class="ui-navbar">
+				
+					<div class="ui-container">
+				
+						<a href="javascript:" class="text-hide logo">APPIRIO</a>
+						
+						<div class="pull-right main-actions">
+						
+<!-- 							<div class="well-search">
+								
+								<div class="form-group search">
+									<input type="search" class="form-control" placeholder="Search" 
+										data-ng-model="modelObj" 
+										ui-autocomplete="myOption" />
+									<a href="javascript:;" class="text-hide icon-search">Search</a>
+								</div>
+								
+								<a href="javascript:;" class="advance-search" 
+									data-ng-click="advance_open()"
+									off-click="advance_close()">
+									Advance
+								</a>
+							</div>
+ -->							<!-- End Search -->
+							
+<!-- 							<div class="ui-popover popover-advance-search"
+								data-ng-class="{'popover-open':advance_popover_open}"
+								force-click>
+								<div class="popover-heading">
+									<a href="javascript:;" class="text-hide icon-close"
+										data-ng-click="advance_close()">
+										Close
+									</a>
+									<h3 class="modal-title">Advance Search</h3>
+								</div>
+								<div class="popover-body">
+									<div class="form-group">
+										<label>Lorem ipsum</label>
+										<input type="text" class="form-control" />
+									</div>
+									<div class="form-group">
+										<label>Lorem ipsum</label>
+										<input type="text" class="form-control" />
+									</div>
+									<div class="form-group">
+										<label>Lorem ipsum</label>
+										<input type="text" class="form-control" />
+									</div>
+									<div class="form-group">
+										<label>Lorem ipsum</label>
+										<select>
+											<option>Please Select</option>
+											<option>Lorem ipsum</option>
+										</select>
+									</div>
+									<div class="form-group">
+										<label>Lorem ipsum</label>
+										<div class="switch" data-ng-class="{checked : checked}" data-ng-init="checked = true">
+											<input type="checkbox" data-ng-model="checked"  />
+											<span class="toggle"></span>
+										</div>
+									</div>
+								</div>
+								<div class="popover-footer">
+									<button class="btn btn-primary" data-ng-click="advance_close()">APPLY</button>
+								</div>
+							</div>
+ -->							<!-- End .advance -->
+							
+							<nav>
+								<ul>
+<!-- 									<li data-ng-class="{active:popoverNotifications}">
+										<a href="javascript:;" class="text-hide icon icon-notifications"
+											data-ng-click="notifications_open()"
+											off-click="notification_hide()">
+											Notifications
+											<span class="badge" 
+												data-ng-show="notifications.length">
+												<span class="badge-inner">
+													{{notifications.length}}
+												</span>
+											</span>
+										</a>
+									</li>
+ -->									<li class="mobile-search" data-ng-class="{active:mobileSearch}">
+										<a href="javascript:;" class="text-hide icon icon-search"
+											data-ng-click="mobile_search_open()"
+                      off-click="mobile_search_close()">
+											Search
+										</a>
+									</li>
+									<li class="app-selector" data-ng-class="{active:applicationsPanel}">
+										<a href="javascript:;" class="text-hide icon icon-applications"
+											data-ng-click="applications_open()"
+											off-click="applications_hide()">
+											Applications
+										</a>
+									</li>
+									<li data-ng-class="{'active':popoverProfile}">
+										<a href="javascript:;" class="text-hide icon icon-profile" 
+											data-ng-click="profile_open()"
+											off-click="profile_close()">Profile
+										</a>
+									</li>
+
+								</ul>
+								
+								<!-- User Profile Popover -->
+								<div class="ui-popover popover-profile" 
+									data-ng-class="{'popover-open':popoverProfile}"
+									force-click>
+									
+									<div class="popover-content">
+									
+										<div class="media">
+											<a href="javascript:;" class="text-hide icon-close"
+												data-ng-click="profile_close()">
+												Close
+											</a>
+											<div class="pull-left">
+												<img src="i/user-thumb.png" data-ng-src="{{userInfo.thumb}}" alt="Thumb" class="thumbnail" />
+											</div>
+											<div class="media-body">
+												<h4>{{userInfo.name}}</h4>
+												{{userInfo.handle}}
+											</div>
+										</div>
+										
+										<div class="actions">
+											<ul>
+												<li>
+													<a href="https://www.topcoder.com/member-profile/rockabilly/" target="_blank" class="icon-my-profile">My Profile</a>
+												</li>
+												<li>
+													<a href="http://community.topcoder.com/tc?module=MyHome" target="_blank" class="icon-account-settings">Account Settings</a>
+												</li>
+												<li>
+													<a href="https://www.topcoder.com/login/" class="icon-sign-out">Sign Out</a>
+												</li>
+											</ul>
+										</div>
+										
+									</div>
+									
+								</div>
+								<!-- End User Profile Popover -->
+								
+								<!-- Notifications Popover -->
+								<div class="ui-popover popover-notifications"
+									data-ng-class="{'popover-open':popoverNotifications}"
+									force-click>
+									
+									<div class="popover-heading">
+										<a href="javascript:;" class="text-hide icon-close"
+											data-ng-click="notification_hide()">
+											Close
+										</a>
+										<h4>Notifications</h4>
+									</div>
+									
+									<div class="notifications-items">
+										<ul data-ng-show="notifications.length">
+											<li data-ng-repeat="notification in notifications">
+												<a href="javascript:" class="details" data-ng-class="notification.status">
+													<span class="title">{{notification.title}}</span>
+													<small>{{notification.context}}</small>
+													<span class="time">{{notification.time}}</span>
+												</a>
+											</li>
+										</ul>
+										<p data-ng-show="!notifications.length">There is no notifications!</p>
+									</div>
+									
+								</div>
+								<!-- End Notifications Popover -->
+								
+								<!-- Applications Popover -->
+								<div class="ui-popover popover-applications"
+									data-ng-class="{'popover-open':applicationsPanel}"
+									force-click>
+									
+									<!-- This Header For My Application -->
+									<div class="popover-heading" data-ng-show="!allAppications">
+										<h3>My Applications</h3>
+									</div>
+									<!-- End Panel Heaer -->
+									
+									<!-- This Header For All Application -->
+									<div class="popover-heading popover-heading-select" data-ng-show="allAppications">
+										<h3>Select Applications</h3>
+										<span class="total">{{count | numberFixedLen:filterred.length.toString().length}} of {{filterred.length}}</span>
+									</div>
+									<!-- End Panel Heaer -->
+									
+									<div class="popover-body">
+									
+										<div class="ui-row">
+											<ul>
+												<li
+													data-ng-repeat="application in filterred = (applications | filter:filterScope)"
+													data-ng-class="{even: ($index+1)%3 === 0}">
+													<label data-ng-show="allAppications">
+														<input type="checkbox" data-ng-model="application.scope"  />
+														<span class="custom-checkbox"></span>
+													</label>
+													<a href="javascript:;"  data-ng-click="allAppications?(application.scope = !application.scope):''">
+														<img src="i/application-thumb.png" data-ng-src="{{application.thumb}}" alt="Application" />
+														{{application.name}}
+													</a>
+												</li>
+											</ul>
+											<p class="no-application" data-ng-show="!filterred.length">There are not any applications</p>
+										</div>
+										<!-- End row -->
+										
+										<div class="popover-footer" data-ng-show="!allAppications">
+											<a href="javascript:;" class="btn btn-primary btn-add-new" data-ng-click="showAllApplications()">ADD NEW</a>
+										</div>
+										
+										<div class="popover-footer" data-ng-show="allAppications">
+											<a href="javascript:;" class="btn btn-primary" data-ng-click="selectApplication()">SELECT</a>
+											<a href="javascript:;" class="btn btn-default" data-ng-click="cancelApplication()">CANCEL</a>
+										</div>
+										
+									</div>
+									
+								</div>
+								<!-- End Applications Popover -->
+								
+							</nav>
+							
+						</div>
+						<!-- End .main-container -->
+						
+					</div>
+					<!-- End .ui-container -->
+					
+					<div class="panel-search" 
+						data-ng-class="{'popover-open':mobileSearch}"
+						force-click>
+					
+						<a href="javascript:;" class="text-hide icon-close"
+							data-ng-click="mobile_search_close()">
+							Close
+						</a>
+								
+						<div class="form-group search">
+            	<input type="search" class="form-control" placeholder="Search" 
+										data-ng-model="modelObj" 
+										ui-autocomplete="myOptionFlyout" />
+							<a href="javascript:;" class="text-hide icon-search">Search</a>
+						</div>
+						
+						<a href="javascript:;" class="advance-search" data-ng-click="advance_open()">Advance</a>
+						
+					</div>
+					<!-- End Search Panel -->
+					
+				</div>
+				<!-- End .ui-navbar -->
+				
+				<div class="header-action">
+					<div class="ui-container">
+					
+						<div class="ui-popover popover-subApplication"
+							data-ng-class="{'popover-open':directPanel}"
+							force-click>
+							<ul>
+								<li 
+									data-ng-repeat="subApplication in subApplications"
+									data-ng-class="{even: $index%2 === 1}">
+									<a href="javascript:;" data-ng-href="{{subApplication.href}}"
+										data-ng-class="{disabled:subApplication.disabled}">
+										<img src="i/sub-applications-thumb.png" data-ng-src="{{subApplication.thumb}}" alt="Sun Application" class="thumbnail" />
+										{{subApplication.name}}
+									</a>
+								</li>
+							</ul>
+						</div>
+						
+						<div class="ui-popover popover-setting"
+							data-ng-class="{'popover-open':settings_popover_open}"
+							force-click>
+							<div class="popover-heading">
+								<a href="javascript:;" class="text-hide icon-close" data-ng-click="setting_close()">Close</a>
+								<h3>Setting</h3>
+							</div>
+							<div class="popover-body">
+								<div class="form-group" data-ng-repeat="setting in settings">
+									<label>{{setting.label}}</label>
+									<div class="switch" data-ng-class="{checked : setting.checked}">
+										<input type="checkbox" data-ng-model="setting.checked" />
+										<span class="toggle"></span>
+									</div>
+								</div>
+							</div>
+							<div class="popover-footer">
+								<button class="btn btn-primary" data-ng-click="setting_ok()">APPLY</button>
+							</div>
+						</div>
+					
+						<div class="pull-left">
+							<a href="javascript:;" class="text-hide icon-hamburger" 
+								data-ng-click="direct_open()"
+								data-ng-class="{active:directPanel}"
+								off-click="direct_hide()">
+								Hamburger
+							</a>
+							<h3>Challenge Management</h3>	
+							
+						</div>
+<!-- `						<a href="javascript:;" class="text-hide pull-right icon-settings" 
+							data-ng-class="{active:settingseModal}" 
+							data-ng-click="settings_open()"
+							off-click="setting_close()">
+							Settings
+						</a>
+ -->						
+					</div>
+				</div>
+				<!-- End Action -->
+				
+			</header>
+			<!-- End header -->
+			
+			<div class="main" data-ng-class="{'panel-open':mobileSearch}" data-ng-view>
+
+			</div>
+			<!-- End .main -->
+		
+		</div>
+		<!-- End .ui-page -->
+		
+	</div>
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>                        
+	
+	
+	<footer class="ui-animate">
+		<p>© 2014 Appirio, Inc.</p>
+	</footer>
+	<!-- End footer -->
+	
+	<script src="js/jquery/jquery-1.11.0.min.js"></script>
+	<script src="js/jquery/jquery-ui.js"></script>
+	<script src="js/bootstrap/bootstrap.js"></script>
+	<script src="js/angular/angular.js"></script>
+	<script src="js/angular/angular-route.js"></script>
+	<script src="js/angular/angular-resource.js"></script>
+	<script src="js/angular/autocomplete.js"></script>
+	<script src="js/bootstrap/ui-bootstrap-tpls.js"></script>
+	<script src="js/angular/matchMedia.js"></script>
+	<script src="js/angular/matchMedia.addListener.js"></script>
+	<script src="js/angular/matchmedia-ng.js"></script>
+	<script src="js/angular/tai-placeholder.js"></script>
+	<script src="js/angular/ng-table.js"></script>
+	<script src="js/calendar/fullcalendar.js"></script>
+	<script src="js/calendar/calendar.js"></script>
+	<script src="js/services.js"></script>
+	<script src="js/controller.js"></script>
+	<script src="js/directive.js"></script>
+	<script src="js/app.js"></script>
+	<!--[if IE 9]>
+	<script src="js/html5shiv.js"></script>
+	<![endif]-->
+
+</body>
+</html>

@@ -1,0 +1,39 @@
+<div class="modal-header">
+    <a href="javascript:;" class="text-hide icon-close" data-ng-click="filter_close()">Close</a>
+    <h3 class="modal-title">Filter</h3>
+</div>
+<div class="modal-body">
+    <div class="form-group">
+        <label>ColumnName</label>
+        <input type="text" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>ColumnName</label>
+        <input type="text" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>ColumnName</label>
+        <select>
+            <option>Please Select</option>
+            <option>Lorem ipsum</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label>ColumnName</label>
+        <select>
+            <option>Please Select</option>
+            <option>Lorem ipsum</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label>ColumnName</label>
+        <div class="switch" data-ng-class="{checked : checked}" data-ng-init="checked = true">
+            <input type="checkbox" data-ng-model="checked"  />
+            <span class="toggle"></span>
+        </div>
+    </div>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" data-ng-click="filter_close()">APPLY</button>
+    <button class="btn btn-gray" data-ng-click="filter_reset()">RESET</button>
+</div>
