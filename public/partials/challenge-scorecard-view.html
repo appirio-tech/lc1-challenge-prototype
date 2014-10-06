@@ -81,14 +81,16 @@
           </td>
 
           <td>
+        <!-- {{$index}} -->
 
-            <div class="btn-group pull-left" data-toggle="buttons-radio">
-              <button type="button" ng-model="row.radioscore" class="btn btn-score" btn-radio="'unscored'">unscored</button>
-              <button type="button" ng-model="row.radioscore" class="btn btn-score" btn-radio="'0'">0</button>
-              <button type="button" ng-model="row.radioscore" class="btn btn-score" btn-radio="'1'">1</button>
-              <button type="button" ng-model="row.radioscore" class="btn btn-score" btn-radio="'2'">2</button>
-              <button type="button" ng-model="row.radioscore" class="btn btn-score" btn-radio="'3'">3</button>
-              <button type="button" ng-model="row.radioscore" class="btn btn-score" btn-radio="'4'">4</button>
+            <div class="btn-group pull-left" data-toggle="buttons-radio" >
+              <button type="button" ng-model="row.radioscore" class="btn btn-score" tooltip="remove score selection" btn-radio="'unscored'">unscored</button>
+              <button type="button" ng-model="row.radioscore" class="btn btn-score"  tooltip="Incomplete or Does not meet Expectations" btn-radio="'0'">0</button>
+              <button type="button" ng-model="row.radioscore" class="btn btn-score"  tooltip="Well below Expectations" btn-radio="'1'">1</button>
+              <button type="button" ng-model="row.radioscore" class="btn btn-score"  tooltip="Slightly below Expectations" btn-radio="'2'">2</button>
+              <button type="button" ng-model="row.radioscore" class="btn btn-score"  tooltip="Meets Expectations" btn-radio="'3'">3</button>
+              <button type="button" ng-model="row.radioscore" class="btn btn-score"  tooltip="Exceeds Expectations" btn-radio="'4'">4</button>
+
             </div>
           </td>
 
