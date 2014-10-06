@@ -16,7 +16,7 @@
             "colName": "Status",
             "col": "status"
         }
-    ],    
+    ],
     "tableDataChallenges": [
         {
             "id": 1,
@@ -184,35 +184,40 @@
             "col1": "1",
             "col2": "Requirement 1 blah blah blah",
             "col3": "0-4",
-            "col4": ""
+            "col4": "",
+            "radioscore": "unscored"
         },
         {
             "id": 2,
             "col1": "2",
             "col2": "Requirement 2 blah blah blah",
             "col3": "30.2",
-            "col4": ""
+            "col4": "",
+            "radioscore": "unscored"
         },
         {
             "id": 3,
             "col1": "3",
             "col2": "Requirement 3 blah blah blah",
             "col3": "0",
-            "col4": ""
+            "col4": "",
+            "radioscore": "unscored"
         },
         {
             "id": 4,
             "col1": "4",
             "col2": "Requirement 4 blah blah blah",
             "col3": "89.2",
-            "col4": ""
+            "col4": "",
+            "radioscore": "unscored"
         },
         {
             "id": 5,
             "col1": "5",
             "col2": "Requirement 5 blah blah blah",
             "col3": "0",
-            "col4": ""
+            "col4": "",
+            "radioscore": "unscored"
         }
     ],
      "columnHeadersReview": [
@@ -248,7 +253,7 @@
             "col3": "albertwang",
             "col4": 92.2
         }
-    ],    
+    ],
     "columnHeadersMobile": [
         {
             "colName": "column",
@@ -266,7 +271,7 @@
             "colName": "column",
             "col": "col4"
         }
-    ],    
+    ],
     "tableDataMobile": [
         {
             "id": 1,
