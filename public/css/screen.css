@@ -3701,3 +3701,18 @@ footer {
 .mobile .calendar{
     margin-bottom: 5px;
 }
+
+.set-prize i {
+	background: url("../i/desktop/prize-icon.png") no-repeat;
+	width: 57px;
+	height: 68px;
+	position: absolute;
+	top: 5px;
+	left: 50%;
+	margin-left: -28px;
+	font-size: 24px;
+	font-family: 'Bree Serif', serif;
+	padding: 15px 0;
+	line-height: 20px;
+	font-style: normal;
+}
