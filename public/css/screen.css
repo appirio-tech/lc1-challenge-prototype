@@ -2676,8 +2676,8 @@ footer {
     color: #3499cb;
 }
 .btn.add-new{
-    width: 157px;
-    text-align: left;
+    min-width: 157px;
+    text-align: center;
 }
 .btn.btn-gray{
     background: #949ca1;
