@@ -9,6 +9,7 @@
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
 <link href="css/fullcalendar.css" rel="stylesheet" type="text/css">
 <link href="css/screen.css" rel="stylesheet" type="text/css">
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 
 <title>Topcoder New Challenge Engine</title>
 
@@ -35,7 +36,7 @@
 						data-ng-class="{even: $index%2 === 1}">
 						<a href="javascript:;" data-ng-href="{{subApplication.href}}"
 							data-ng-class="{disabled:subApplication.disabled}">
-							<img src="i/sub-applications-thumb.png" data-ng-src="{{subApplication.thumb}}" alt="Sun Application" class="thumbnail" />
+							<img src="i/sub-applications-thumb.png" data-ng-src="{{subApplication.thumb}}" alt="Sub Application" class="thumbnail" />
 							{{subApplication.name}}
 						</a>
 					</li>
@@ -196,13 +197,15 @@
 											off-click="applications_hide()">
 											Applications
 										</a>
-									</li>
+									</li>									
+
 									<li data-ng-class="{'active':popoverProfile}">
 										<a href="javascript:;" class="text-hide icon icon-profile" 
 											data-ng-click="profile_open()"
 											off-click="profile_close()">Profile
 										</a>
 									</li>
+									
 
 								</ul>
 								

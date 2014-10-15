@@ -147,7 +147,7 @@
                         <a href="javascript:" class="add-btn {{row.expand?'expand':''}}" data-ng-click="toggleExpand(row)"></a>
                     </td>
                     <td class="text-left" data-sortable="'col1'">
-                        <a href="http://www.topcoder.com/challenge-details/30044025" target="_blank">{{row.challengeName}}</a>
+                        <a href="http://www.topcoder.com/challenge-details/30044025" target="_blank">{{row.challengeName}} <i data-ng-if="row.status!='Draft'" class="fa fa-external-link-square"></i></a>
                     </td>
                     <td class="text-left" data-sortable="'col2'">
                         {{row.accountName}}
@@ -162,13 +162,13 @@
                         <a href="javascript:" class="copy"></a>
                     </td> -->
                     <td data-ng-if="!phone" class="action-btn" ng-switch on="row.id">
-                        <a href="#/challenges/1/submissions" class="edit" ng-switch-when="1" title="View Submissions">{{row.id}}</a>
-                        <a href="#/challenges/2/submissions" class="edit" ng-switch-when="2" title="View Submissions">{{row.id}}</a>
-                        <a href="#/challenges/4/results" class="edit" ng-switch-when="4" title="View Results">{{row.id}}</a>
-                        <a href="#/challenges/{{row.id}}/edit" class="edit" ng-switch-default title="Edit Challenge">{{row.id}}</a>
+                        <a href="#/challenges/1/submissions" class="fa fa-2x fa-eye" ng-switch-when="1" title="View Submissions"></a>
+                        <a href="#/challenges/2/submissions" class="fa fa-2x fa-eye" ng-switch-when="2" title="View Submissions"></a>
+                        <a href="#/challenges/4/results" class="fa fa-2x fa-eye" ng-switch-when="4" title="View Results"></a>
+                        <a href="#/challenges/{{row.id}}/edit" class="fa fa-2x fa-pencil-square" ng-switch-default title="Edit Challenge"></a>
                     </td>
                     <td data-ng-if="!phone" class="action-btn" ng-switch on="row.status">
-                        <a href="javascript:void(0);" data-ng-click="delete(row)" class="delete" ng-switch-when="Draft" title="Delete Challenge"></a>
+                        <a href="javascript:void(0);" data-ng-click="delete(row)" class="fa fa-trash fa-2x" ng-switch-when="Draft" title="Delete Challenge"></a>
                         <a href="javascript:void(0);" class="delete hidden" ng-switch-default></a>
                     </td>
                 </tr>
