@@ -3610,10 +3610,10 @@ footer {
                         text-align: center;
                         line-height: 30px;
                     }
-                        div.grid .body .action-rating .rating i.glyphicon{
+/*                        div.grid .body .action-rating .rating i.glyphicon{
                             top: 4px;
                         }
-                    div.grid .body .action-rating .share{
+*/                    div.grid .body .action-rating .share{
                         display: block;
                         text-align: center;
                         font-size: 0;
@@ -3669,8 +3669,8 @@ footer {
                             background: url("../i/desktop/icons.png") no-repeat scroll 100% -90px rgba(0, 0, 0, 0);
                         }
 
-/*rating styles*/
-.glyphicon {
+/*/*/*rating styles*/
+/*.glyphicon {
     position: relative;
     top: 8px;
     display: inline-block;
@@ -3682,8 +3682,8 @@ footer {
 }
 .glyphicon.glyphicon-star-empty {
     background: url("../i/desktop/icons.png") no-repeat -100px -310px;
-}
-.sr-only {
+}*/
+*/*/.sr-only {
     position: absolute;
     width: 1px;
     height: 1px;

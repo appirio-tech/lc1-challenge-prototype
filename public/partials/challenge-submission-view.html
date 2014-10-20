@@ -98,11 +98,11 @@
                     </td>
                     <td data-ng-if="!phone" class="action-btn">
                         <!-- use download attribute to do download -->
-                        <a href="data/submission.pdf" download class="edit" title="Download Submission"></a>
+                        <a href="data/submission.pdf" download class="fa fa-download fa-2x" title="Download Submission"></a>
                     </td>
                      <td data-ng-if="!phone" class="action-btn">
-                        <a ng-if="row.col4 === 'New'" href="#/challenges/{{challengeId}}/submissions/{{row.col1}}/scorecard" class="copy" title="Create Scorecard"></a>
-                        <a ng-if="row.col4 !== 'New'" href="#/challenges/{{challengeId}}/submissions/{{row.col1}}/scorecard" class="copy" title="Review Scorecard"></a>
+                        <a ng-if="row.col4 === 'New'" href="#/challenges/{{challengeId}}/submissions/{{row.col1}}/scorecard" class="fa fa-check-square fa-2x" title="Create Scorecard"></a>
+                        <a ng-if="row.col4 !== 'New'" href="#/challenges/{{challengeId}}/submissions/{{row.col1}}/scorecard" class="fa fa-check-square-o fa-2x" title="Review Scorecard"></a>
                     </td>
                     <!--
                     <td data-ng-if="!phone" class="action-btn">
